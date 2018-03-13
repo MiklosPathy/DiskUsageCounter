@@ -1,0 +1,19 @@
+﻿<Window x:Class="DiskUsageCounter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:DiskUsageCounter"
+        Title="Disk usage counter" Height="120" Width="265" Background="#FF313181" OpacityMask="Black">
+    <Grid>
+        <Grid.Resources>
+            <local:FormatKbSizeConverter x:Key="FormatKbSizeConverter" />
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="38*" />
+            <RowDefinition Height="43*" />
+        </Grid.RowDefinitions>
+        <Label Content="Reads" Height="28" HorizontalAlignment="Left" Margin="12,12,0,0" Name="label1" VerticalAlignment="Top" Foreground="Lime" Grid.RowSpan="2" />
+        <Label Content="{Binding Reads,Converter={StaticResource FormatKbSizeConverter}}" Height="28" HorizontalAlignment="Left" Margin="54,12,0,0" Name="lblReads" VerticalAlignment="Top" Width="177" Foreground="Lime" Grid.RowSpan="2" />
+        <Label Content="Writes" Height="28" HorizontalAlignment="Left" Margin="12,8,0,0" Name="label3" VerticalAlignment="Top" Foreground="Red" Grid.Row="1" />
+        <Label Content="{Binding Writes,Converter={StaticResource FormatKbSizeConverter}}" Height="28" HorizontalAlignment="Left" Margin="54,8,0,0" Name="lblWrites" VerticalAlignment="Top" Width="177" Foreground="Red" Grid.Row="1" />
+    </Grid>
+</Window>
